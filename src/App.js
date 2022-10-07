@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { useTheme } from './hooks/useTheme'
+import Layout from './components/Layout'
+import Chat from './components/Chat'
+import Auth from './pages/Auth'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const { theme } = useTheme()
+
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={"/auth"} element={<Auth/>}/>
+                    <Route path={"/chats"} element={<Layout/>}>
+                        <Route index element={<div/>}/>
+                        <Route path={"/chats/:id"} element={<Chat/>}/>
+                    </Route>
+                    <Route path={"*"} element={<Navigate to={"/chats"}/>}/>
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
+    )
 }
 
-export default App;
+export default App
