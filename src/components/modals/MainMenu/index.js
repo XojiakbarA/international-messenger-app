@@ -7,8 +7,12 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import ThemeMenu from "./ThemeMenu"
 import { useState } from "react"
 import { useTheme } from "../../../hooks/useTheme"
+import {useDispatch} from "react-redux"
+import {logout} from "../../../store/slices/authSlice"
 
 const MainMenu = ({ anchorEl, onClose, onSettingsClick }) => {
+
+    const dispatch = useDispatch()
 
     const [themeAnchorEl, setThemeAnchorEl] = useState(null)
 
@@ -23,6 +27,10 @@ const MainMenu = ({ anchorEl, onClose, onSettingsClick }) => {
             default:
                 return <BrightnessAutoIcon/>
         }
+    }
+    const handleLogoutClick = () => {
+        dispatch(logout())
+        onClose()
     }
 
     return (
@@ -45,7 +53,7 @@ const MainMenu = ({ anchorEl, onClose, onSettingsClick }) => {
                 </ListItemIcon>
                 <ListItemText>Settings</ListItemText>
             </MenuItem>
-            <MenuItem onClick={onClose}>
+            <MenuItem onClick={handleLogoutClick}>
                 <ListItemIcon>
                     <LogoutIcon/>
                 </ListItemIcon>

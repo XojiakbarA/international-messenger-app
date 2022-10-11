@@ -8,6 +8,8 @@ import { useTheme } from './hooks/useTheme'
 import Layout from './components/Layout'
 import Chat from './components/Chat'
 import Auth from './pages/Auth'
+import {SnackbarProvider} from "notistack"
+import Snackbars from "./components/snackbars"
 
 const App = () => {
 
@@ -26,6 +28,9 @@ const App = () => {
                     <Route path={"*"} element={<Navigate to={"/chats"}/>}/>
                 </Routes>
             </BrowserRouter>
+            <SnackbarProvider maxSnack={5}>
+                <Snackbars/>
+            </SnackbarProvider>
         </ThemeProvider>
     )
 }

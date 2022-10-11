@@ -23,7 +23,7 @@ const Settings = ({ onBackClick }) => {
                 </Toolbar>
                 <Divider/>
                 <form>
-                    <Stack spacing={1}>
+                    <Stack spacing={2}>
                         <ImageUpload
                             ref={imageRef}
                             width={"100%"}
@@ -32,12 +32,12 @@ const Settings = ({ onBackClick }) => {
                         <Stack spacing={2} px={1}>
                             <TextField
                                 fullWidth
-                                variant={"standard"}
+                                variant={"filled"}
                                 label={"Name"}
                             />
                             <TextField
                                 fullWidth
-                                variant={"standard"}
+                                variant={"filled"}
                                 label={"Email"}
                                 value={"user@gmail.com"}
                                 disabled

@@ -1,8 +1,10 @@
 import { Grid, Box, useTheme, useMediaQuery } from "@mui/material"
-import { Outlet, useParams } from "react-router-dom"
+import {Navigate, Outlet, useParams} from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import ChatList from "../ChatList"
 import Settings from "../Settings"
+import {useSelector} from "react-redux";
+import {authSelector} from "../../store/selectors";
 
 const Layout = () => {
 
@@ -19,6 +21,10 @@ const Layout = () => {
     useEffect(() => {
         ref.current?.scrollTo(0, ref.current.scrollHeight)
     }, [params.id])
+
+    const { isAuth } = useSelector(authSelector)
+
+    if (!isAuth) return <Navigate to={"/auth"}/>
 
     return (
         <Grid container>

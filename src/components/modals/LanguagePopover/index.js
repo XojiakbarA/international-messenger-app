@@ -28,7 +28,7 @@ const LanguageDialog = ({ anchorEl, options, value, onClose, onChange }) => {
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            variant={"standard"}
+                            variant={"filled"}
                             label={"Choose Language"}
                         />
                     )}
