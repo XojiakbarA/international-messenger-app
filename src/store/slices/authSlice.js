@@ -13,6 +13,18 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
+        oauth2Login: (state, action) => {
+            state.message = action.payload.message
+            state.error = false
+            state.isAuth = true
+            localStorage.setItem("token", action.payload.token)
+        },
+        oauth2LoginError: (state, action) => {
+            state.message = action.payload.message
+            state.error = true
+            state.isAuth = false
+            localStorage.removeItem("token")
+        },
         logout: (state) => {
             state.message = "You are logged out"
             state.error = false
@@ -66,6 +78,6 @@ export const authSlice = createSlice({
     }
 })
 
-export const { logout } = authSlice.actions
+export const { logout, oauth2Login, oauth2LoginError } = authSlice.actions
 
 export default authSlice.reducer

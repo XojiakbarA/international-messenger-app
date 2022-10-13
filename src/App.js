@@ -10,6 +10,7 @@ import Chat from './components/Chat'
 import Auth from './pages/Auth'
 import {SnackbarProvider} from "notistack"
 import Snackbars from "./components/snackbars"
+import OAuth2RedirectHandler from "./oauth2/OAuth2RedirectHandler"
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
                         <Route path={"/chats/:id"} element={<Chat/>}/>
                     </Route>
                     <Route path={"*"} element={<Navigate to={"/chats"}/>}/>
+                    <Route path={"/oauth2/redirect"} element={<OAuth2RedirectHandler/>}/>
                 </Routes>
             </BrowserRouter>
             <SnackbarProvider maxSnack={5}>
