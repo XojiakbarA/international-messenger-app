@@ -1,26 +1,28 @@
-import { Avatar, Paper, Stack, Typography } from "@mui/material"
+import {Avatar, Fade, Paper, Stack, Typography} from "@mui/material"
 
-const MessageItem = ({ message }) => {
+const ChatItem = ({ message, timeout }) => {
 
     return (
-        <Stack direction={message.isOwn ? "row-reverse" : "row"} spacing={1} alignSelf={message.isOwn ? "end" : "start"}>
-            <Avatar sx={{ width: 30, height: 30 }}/>
-            <Paper sx={{
-                p: 1,
-                maxWidth: 300,
-                bgcolor: message.isOwn ? "primary.main" : "background.paper",
-            }}>
-                    <Stack>
-                        <Typography color={message.isOwn ? "primary.contrastText" : "text.primary"}>
-                            { message.content }
-                        </Typography>
-                        <Typography color={message.isOwn ? "primary.contrastText" : "text.primary"} variant={"caption"} textAlign={"right"}>
-                            { message.time }
-                        </Typography>
-                    </Stack>
-            </Paper>
-        </Stack>
+        <Fade in timeout={timeout * 200}>
+            <Stack direction={message.isMine ? "row-reverse" : "row"} spacing={1} alignSelf={message.isMine ? "end" : "start"}>
+                <Avatar sx={{ width: 30, height: 30 }}/>
+                <Paper sx={{
+                    p: 1,
+                    maxWidth: 300,
+                    bgcolor: message.isMine ? "primary.main" : "background.paper",
+                }}>
+                        <Stack>
+                            <Typography color={message.isMine ? "primary.contrastText" : "text.primary"}>
+                                { message.content }
+                            </Typography>
+                            <Typography color={message.isMine ? "primary.contrastText" : "text.primary"} variant={"caption"} textAlign={"right"}>
+                                { new Date(message.createdAt).toLocaleTimeString() }
+                            </Typography>
+                        </Stack>
+                </Paper>
+            </Stack>
+        </Fade>
     )
 }
 
-export default MessageItem
+export default ChatItem

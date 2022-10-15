@@ -7,7 +7,18 @@
     <list default="true" id="6b034c04-49ea-4eba-82da-ff69a1aa4da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/authSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chat/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputs/SearchInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/UserInfoDialog/UserInfoDialogContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/UserInfoDialog/UserInfoDialogContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snackbars/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Snackbars/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/selectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,24 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/xojiakbarakramov/my_projects/international-messenger/src/oauth2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/xojiakbarakramov/my_projects/international-messenger/src/oauth2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/oauth2" />
       <recent name="$PROJECT_DIR$/src/components/inputs" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/inputs" />
+      <recent name="$PROJECT_DIR$/src/components/skeletons" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -68,7 +83,14 @@
       <workItem from="1665487020744" duration="10251000" />
       <workItem from="1665502270025" duration="1486000" />
       <workItem from="1665504107771" duration="104000" />
-      <workItem from="1665654898288" duration="3540000" />
+      <workItem from="1665654898288" duration="5803000" />
+      <workItem from="1665677552523" duration="2543000" />
+      <workItem from="1665692792616" duration="6935000" />
+      <workItem from="1665771316861" duration="4257000" />
+      <workItem from="1665776658886" duration="11994000" />
+      <workItem from="1665788998679" duration="263000" />
+      <workItem from="1665826776916" duration="9206000" />
+      <workItem from="1665846295733" duration="1896000" />
     </task>
     <servers />
   </component>

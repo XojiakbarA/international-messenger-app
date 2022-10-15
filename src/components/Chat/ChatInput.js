@@ -1,13 +1,13 @@
 import { AppBar, Container, IconButton, Stack, TextField } from "@mui/material"
 import SendIcon from '@mui/icons-material/Send'
 
-const MessageInput = () => {
+const MessageInput = ({ width }) => {
 
     return (
         <AppBar
-            position={"sticky"}
+            position={"fixed"}
             color={"transparent"}
-            sx={{ top: "auto", bottom: 0, backdropFilter: "blur(5px)" }}
+            sx={{ width, top: "auto", bottom: 0, backdropFilter: "blur(5px)" }}
         >
             <Container maxWidth={"md"}>
             <Stack spacing={1} direction={"row"} alignItems={"center"} py={0.5}>

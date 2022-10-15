@@ -1,28 +1,26 @@
 import { Grid, Box, useTheme, useMediaQuery } from "@mui/material"
 import {Navigate, Outlet, useParams} from "react-router-dom"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import ChatList from "../ChatList"
 import Settings from "../Settings"
-import {useSelector} from "react-redux";
-import {authSelector} from "../../store/selectors";
+import {useDispatch, useSelector} from "react-redux"
+import {authSelector} from "../../store/selectors"
+import {getAuthUserChats} from "../../store/asyncThunks/chatsAsyncThunk"
 
 const Layout = () => {
 
     const isDownSm = useMediaQuery((theme) => theme.breakpoints.down('sm'))
 
-    const ref = useRef(null)
-
-    const { palette } = useTheme()
-
+    const dispatch = useDispatch()
     const params = useParams()
+    const { palette } = useTheme()
+    const { isAuth } = useSelector(authSelector)
 
     const [sidebar, setSidebar] = useState("chatList")
 
     useEffect(() => {
-        ref.current?.scrollTo(0, ref.current.scrollHeight)
-    }, [params.id])
-
-    const { isAuth } = useSelector(authSelector)
+        dispatch(getAuthUserChats())
+    }, [dispatch])
 
     if (!isAuth) return <Navigate to={"/auth"}/>
 
@@ -51,9 +49,7 @@ const Layout = () => {
                 params.id
                 &&
                 <Grid item xs={12} sm={6} md={8} lg={9}>
-                    <Box ref={ref} height={"100vh"} overflow={"auto"}>
-                        <Outlet/>
-                    </Box>
+                    <Outlet/>
                 </Grid>
             }
         </Grid>

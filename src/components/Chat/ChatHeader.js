@@ -1,13 +1,27 @@
-import { AppBar, Avatar, Box, ButtonBase, Chip, IconButton, Stack, Toolbar, Typography } from "@mui/material"
+import {AppBar, Box, ButtonBase, Chip, IconButton, Toolbar} from "@mui/material"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import UserInfoDialog from "../modals/UserInfoDialog"
-import { useState } from "react"
+import {useEffect, useState} from "react"
 import LanguagePopover from "../modals/LanguagePopover"
-import { useNavigate } from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
+import {chatsSelector} from "../../store/selectors"
+import {setChat} from "../../store/slices/chatsSlice"
+import ChatHeaderUserSkeleton from "../skeletons/ChatHeaderUserSkeleton"
+import ChatHeaderUser from "./ChatHeaderUser"
 
-const Header = () => {
+const ChatHeader = ({ width }) => {
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+    const params = useParams()
+
+    const { loading, single: chat, list: chats } = useSelector(chatsSelector)
+
+    useEffect(() => {
+        const chat = chats.find(ch => ch.id === +params.id)
+        dispatch(setChat({ chat }))
+    }, [dispatch, chats, params.id])
 
     const array = [
         { code: "ru", title: "Russian" },
@@ -24,9 +38,9 @@ const Header = () => {
 
     return (
         <AppBar
-            position={"sticky"}
+            position={"fixed"}
             color={"transparent"}
-            sx={{ top: 0, backdropFilter: "blur(5px)" }}
+            sx={{ width, top: 0, backdropFilter: "blur(5px)" }}
         >
             <Toolbar variant="dense">
                 <IconButton
@@ -35,12 +49,13 @@ const Header = () => {
                 >
                     <ChevronLeftIcon/>
                 </IconButton>
-                <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                    <IconButton onClick={ e => setUserInfoOpen(true) }>
-                        <Avatar sx={{ width: 30, height: 30 }}/>
-                    </IconButton>
-                    <Typography>Person 1</Typography>
-                </Stack>
+                {
+                    loading
+                    ?
+                    <ChatHeaderUserSkeleton/>
+                    :
+                    <ChatHeaderUser user={chat?.user} onClick={ e => setUserInfoOpen(true) }/>
+                }
                 <Box flexGrow={1}/>
                 <Chip
                     clickable
@@ -64,4 +79,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default ChatHeader

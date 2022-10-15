@@ -9,7 +9,7 @@ import Layout from './components/Layout'
 import Chat from './components/Chat'
 import Auth from './pages/Auth'
 import {SnackbarProvider} from "notistack"
-import Snackbars from "./components/snackbars"
+import Snackbars from "./components/Snackbars"
 import OAuth2RedirectHandler from "./oauth2/OAuth2RedirectHandler"
 
 const App = () => {
