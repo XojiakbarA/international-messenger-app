@@ -6,6 +6,7 @@ import Settings from "../Settings"
 import {useDispatch, useSelector} from "react-redux"
 import {authSelector} from "../../store/selectors"
 import {getAuthUserChats} from "../../store/asyncThunks/chatsAsyncThunk"
+import {getLanguages} from "../../store/asyncThunks/languagesAsyncThunk"
 
 const Layout = () => {
 
@@ -20,6 +21,7 @@ const Layout = () => {
 
     useEffect(() => {
         dispatch(getAuthUserChats())
+        dispatch(getLanguages())
     }, [dispatch])
 
     if (!isAuth) return <Navigate to={"/auth"}/>

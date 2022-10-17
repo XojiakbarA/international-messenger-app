@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6b034c04-49ea-4eba-82da-ff69a1aa4da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/ChatItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/ChatItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Chat/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputs/SearchInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/UserInfoDialog/UserInfoDialogContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/UserInfoDialog/UserInfoDialogContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/snackbars/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Snackbars/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/LanguagePopover/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/LanguagePopover/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/selectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/index.js" afterDir="false" />
     </list>
@@ -90,7 +84,14 @@
       <workItem from="1665776658886" duration="11994000" />
       <workItem from="1665788998679" duration="263000" />
       <workItem from="1665826776916" duration="9206000" />
-      <workItem from="1665846295733" duration="1896000" />
+      <workItem from="1665846295733" duration="2016000" />
+      <workItem from="1665849451794" duration="597000" />
+      <workItem from="1665903711704" duration="597000" />
+      <workItem from="1665906067423" duration="38000" />
+      <workItem from="1665909890699" duration="4811000" />
+      <workItem from="1665922179141" duration="3625000" />
+      <workItem from="1665940908101" duration="4524000" />
+      <workItem from="1666006112998" duration="1612000" />
     </task>
     <servers />
   </component>

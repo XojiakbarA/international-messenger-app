@@ -1,9 +1,14 @@
-import { Autocomplete, Box, Popover, TextField } from "@mui/material"
+import {Autocomplete, Box, CircularProgress, Popover, TextField} from "@mui/material"
+import {useSelector} from "react-redux"
+import {chatsSelector, languagesSelector} from "../../../store/selectors"
 
-const LanguageDialog = ({ anchorEl, options, value, onClose, onChange }) => {
+const LanguageDialog = ({ anchorEl, onClose }) => {
 
-    const handleChange = (e, v) => {
-        onChange(e, v)
+    const { single: chat } = useSelector(chatsSelector)
+    const { loading, list: languages } = useSelector(languagesSelector)
+
+    const handleChange = async (e, language) => {
+        console.log(language)
         onClose()
     }
 
@@ -18,18 +23,40 @@ const LanguageDialog = ({ anchorEl, options, value, onClose, onChange }) => {
         >
             <Box width={300} p={2}>
                 <Autocomplete
-                    value={value}
-                    options={options}
+                    loading={loading}
+                    value={chat?.locale}
+                    options={languages}
                     disableClearable
-                    getOptionLabel={ option => option.title }
-                    getOptionDisabled={ option => option.code === value.code }
-                    isOptionEqualToValue={ (o, v) => o.title === v.title }
+                    getOptionLabel={ option => option.languageName }
+                    getOptionDisabled={ option => option?.languageCode === chat?.locale?.languageCode }
+                    isOptionEqualToValue={ (o, v) => o.languageCode === v.languageCode }
                     onChange={handleChange}
+                    renderOption={(props, option) => (
+                        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                            <img
+                                loading="lazy"
+                                width="20"
+                                src={`https://flagcdn.com/w20/${option?.languageCode.toLowerCase()}.png`}
+                                srcSet={`https://flagcdn.com/w40/${option?.languageCode.toLowerCase()}.png 2x`}
+                                alt=""
+                            />
+                            {option?.languageName}
+                        </Box>
+                    )}
                     renderInput={(params) => (
                         <TextField
                             {...params}
                             variant={"filled"}
                             label={"Choose Language"}
+                            InputProps={{
+                                ...params.InputProps,
+                                endAdornment: (
+                                    <>
+                                        {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                                        {params.InputProps.endAdornment}
+                                    </>
+                                ),
+                            }}
                         />
                     )}
                 />

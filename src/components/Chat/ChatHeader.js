@@ -1,5 +1,6 @@
-import {AppBar, Box, ButtonBase, Chip, IconButton, Toolbar} from "@mui/material"
+import {AppBar, Box, ButtonBase, Chip, CircularProgress, IconButton, Toolbar} from "@mui/material"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import TranslateIcon from '@mui/icons-material/Translate'
 import UserInfoDialog from "../modals/UserInfoDialog"
 import {useEffect, useState} from "react"
 import LanguagePopover from "../modals/LanguagePopover"
@@ -18,23 +19,13 @@ const ChatHeader = ({ width }) => {
 
     const { loading, single: chat, list: chats } = useSelector(chatsSelector)
 
+    const [userInfoOpen, setUserInfoOpen] = useState(false)
+    const [anchorEl, setAnchorEl] = useState(null)
+
     useEffect(() => {
         const chat = chats.find(ch => ch.id === +params.id)
         dispatch(setChat({ chat }))
     }, [dispatch, chats, params.id])
-
-    const array = [
-        { code: "ru", title: "Russian" },
-        { code: "en", title: "English" },
-        { code: "it", title: "Italian" },
-        { code: "fr", title: "French" },
-        { code: "ch", title: "Chinese" },
-        { code: "uz", title: "Uzbek" },
-    ]
-
-    const [language, setLanguage] = useState(array[0])
-    const [userInfoOpen, setUserInfoOpen] = useState(false)
-    const [anchorEl, setAnchorEl] = useState(null)
 
     return (
         <AppBar
@@ -59,7 +50,9 @@ const ChatHeader = ({ width }) => {
                 <Box flexGrow={1}/>
                 <Chip
                     clickable
-                    label={language?.code?.toUpperCase()}
+                    disabled={loading}
+                    icon={loading ? <CircularProgress size={16}/> : <TranslateIcon fontSize={"small"}/>}
+                    label={chat?.locale ? chat?.locale?.languageCode.toUpperCase() : " - "}
                     component={ButtonBase}
                     onClick={ e => setAnchorEl(e.currentTarget) }
                 />
@@ -71,9 +64,6 @@ const ChatHeader = ({ width }) => {
             <LanguagePopover
                 anchorEl={anchorEl}
                 onClose={ e => setAnchorEl(null) }
-                value={language}
-                options={array}
-                onChange={ (e, lang) => setLanguage(lang) }
             />
         </AppBar>
     )

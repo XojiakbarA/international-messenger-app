@@ -4,10 +4,10 @@ import ChatInput from "./ChatInput"
 import ChatItem from "./ChatItem"
 import {useDispatch, useSelector} from "react-redux"
 import {useEffect, useRef} from "react"
-import {useParams} from "react-router-dom"
-import {messagesSelector} from "../../store/selectors"
+import {chatsSelector, messagesSelector} from "../../store/selectors"
 import {useGetWidth} from "../../hooks/useGetWidth"
 import {getChatMessages} from "../../store/asyncThunks/messagesAsyncThunk"
+import {useParams} from "react-router-dom";
 
 const Chat = () => {
 
@@ -15,6 +15,7 @@ const Chat = () => {
     const params = useParams()
 
     const { loading, list: messages } = useSelector(messagesSelector)
+    const { single: chat } = useSelector(chatsSelector)
 
     const { ref, width } = useGetWidth()
 
@@ -31,7 +32,7 @@ const Chat = () => {
         return () => {
             promise.abort()
         }
-    }, [dispatch, params.id])
+    }, [dispatch, chat, params.id])
 
     const timeouts = Array.from({ length: messages.length }, (_, i) => i+1).reverse()
 
